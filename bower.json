@@ -1,0 +1,7 @@
+{
+  "name": "excessorPirat",
+  "license": "MIT",
+  "ignore": [
+    "package.json"
+  ]
+}
