@@ -65,6 +65,7 @@ excessor.set('pirate', 'compileNextState', function (operation) {
 });
 
 (function() {
+
     function Pirate (fps) {
       this.stack = {};
       this.fps = 0;
@@ -82,10 +83,12 @@ excessor.set('pirate', 'compileNextState', function (operation) {
       this._fps   = fps;
     };
 
+    Pirate.prototype.compileNextState = excessor.get('pirate', 'compileNextState');
+
     Pirate.prototype.render = function(){
         var stack = this.stack;
         for (var key in stack) {
-            excessor.get('pirate', 'compileNextState').call(this, stack[key]);
+            this.compileNextState(stack[key]);
         }
     };
 
