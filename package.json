@@ -1,6 +1,6 @@
 {
   "name": "excessor-pirate",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "JavaScript/Typescript timeout operations library",
   "main": "out/excessor-pirate.js",
   "dependencies": {
