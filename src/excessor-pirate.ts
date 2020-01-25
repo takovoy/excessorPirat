@@ -78,9 +78,9 @@ export namespace ExcessorPirate {
         }
         private get timingFunction() {
             let array: TimingFunctionType = [[0, 0]];
-            if (typeof this._timingFunction === 'string') {
+            if (typeof this._timingFunction === 'string' && DEFAULT_TIMING_FUNCTIONS[this._timingFunction]) {
                 array = array.concat(DEFAULT_TIMING_FUNCTIONS[this._timingFunction]);
-            } else {
+            } else if (typeof this._timingFunction !== 'string') {
                 array = array.concat(this._timingFunction);
             }
             array.push([1, 1]);
@@ -176,7 +176,7 @@ export namespace ExcessorPirate {
         remove(operation: IOperation): void;
     }
 
-    export class Pirate {
+    export class Pirate implements IPirate {
         private stack: {[key: string]: IOperation} = {};
         private _fps: number;
         private core: NodeJS.Timer;

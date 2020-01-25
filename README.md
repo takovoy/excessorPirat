@@ -1,2 +1,2 @@
 # Excessor Pirat
-Library for timeouts operations
+Library for timeout operations
