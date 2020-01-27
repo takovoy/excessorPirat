@@ -72,7 +72,7 @@ export namespace ExcessorPirate {
         private _timingFunction: [number, number][] | string;
         public get shift() {
             if (this._timingFunction) {
-                return +this.rawShift * TRIGONOMETRY.getPointOnCurve(this.rawShift, <TimingFunctionType>this.timingFunction)[1];
+                return +this.rawShift * TRIGONOMETRY.getPointOnCurve(this.rawShift * 100, <TimingFunctionType>this.timingFunction)[1];
             }
             return +this.rawShift;
         }
@@ -156,7 +156,7 @@ export namespace ExcessorPirate {
                 operation.repeat();
                 return;
             }
-            this.remove(operation.id);
+            this.remove(operation);
             operation.callback();
             return;
         }
